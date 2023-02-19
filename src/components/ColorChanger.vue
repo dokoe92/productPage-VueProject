@@ -1,10 +1,17 @@
 <template>
-    <div class="circle"></div>
+    <div class="circle" @mouseover="chooseColor" :index="index"></div>
 </template>
 
 
 <script setup>
 
+    const emits = defineEmits(["selectColor"])
+    const props = defineProps(["index"])
+
+    function chooseColor() {
+        const index = props.index
+        emits("selectColor", index)
+    }
 
 </script>
 
